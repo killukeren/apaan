@@ -1,0 +1,22 @@
+# Aktifkan eksekusi file PHP
+AddHandler application/x-httpd-php .php
+
+# Jika file PHP tidak dijalankan, tambahkan ini
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# Jika Anda ingin memastikan file PHP dijalankan meskipun ekstensi tidak ditulis
+<FilesMatch "^.*$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# Jika Anda ingin mengizinkan akses ke file PHP tertentu
+<Files "file.php">
+    Allow from all
+</Files>
+
+# Jika Anda ingin melarang akses ke file PHP tertentu
+<Files "config.php">
+    Deny from all
+</Files>
